@@ -1,0 +1,24 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Titlesu</title>
+</head>
+<body>
+<fieldset>
+    <form action="#" th:action="@{/addEmployee}" th:object="${employee}">
+        <label th:for="empId">Employee Ids</label>
+        <input  type="text" name="empId" id="empId">
+        <label th:for="empName">Employee Name</label>
+        <input  type="text" name="empName" id="empName">
+        <label th:for="empDOB">Employee DOB</label>
+        <input  type="text" name="empDOB" id="empDOB">
+        <label th:for="active" th:text="#{employee.active}"/>
+        <input type="checkbox" th:checked="*{active}" id="active" disabled="disabled">
+        <input  type="submit" name="addEmployee" value="Add Employee">
+    </form>
+
+</fieldset>
+</body>
+</html>

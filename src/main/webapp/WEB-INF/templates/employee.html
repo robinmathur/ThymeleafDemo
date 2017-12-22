@@ -1,0 +1,27 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<fieldset>
+    <form action="#" th:object="${employee}">
+        <label th:for="empId">Employee Id</label>
+        <input  type="text" th:field="*{empId}">
+        <label th:for="empName">Employee Name</label>
+        <input  type="text" th:field="*{empName}">
+        <label th:for="empDOB">Employee DOB</label>
+        <input type="text" th:field="*{{empDOB}}">
+        <label th:for="${#ids.next('empType')}" th:text="#{*{'employee.type.'+ empType}}"/>
+        <input type="checkbox" th:field="*{empType}" th:value="${empTypes}">
+        <label th:for="${#ids.next('active')}" th:text="#{employee.active}"/>
+        <input type="checkbox" th:field="*{active}">
+        <input  type="text" th:field="${#dates.format(*{empDOB}, 'dd-MM-yyyy')}">
+    </form>
+
+</fieldset>
+
+</body>
+</html>
